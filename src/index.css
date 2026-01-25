@@ -2,95 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import "@fontsource/dancing-script/400.css";
+@import "@fontsource/dancing-script/700.css";
+@import "@fontsource/great-vibes/400.css";
+
+/* Vintage Love Letter Wedding Anniversary - Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Parchment paper palette */
+    --background: 40 30% 94%;
+    --foreground: 25 45% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 35% 97%;
+    --card-foreground: 25 45% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 30% 96%;
+    --popover-foreground: 25 45% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Coffee brown primary */
+    --primary: 25 45% 25%;
+    --primary-foreground: 40 30% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Dusty rose secondary */
+    --secondary: 350 35% 75%;
+    --secondary-foreground: 25 45% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted parchment */
+    --muted: 40 25% 88%;
+    --muted-foreground: 25 30% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gold accent */
+    --accent: 45 75% 55%;
+    --accent-foreground: 25 45% 15%;
+
+    /* Rose for love elements */
+    --rose: 350 45% 65%;
+    --rose-light: 350 40% 85%;
+    --rose-foreground: 40 30% 97%;
+
+    /* Gold variants */
+    --gold: 45 80% 50%;
+    --gold-light: 45 70% 75%;
+    --gold-dark: 40 70% 35%;
+
+    /* Paper textures */
+    --paper: 40 35% 92%;
+    --paper-dark: 35 30% 85%;
+    --envelope: 35 40% 75%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 30% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 30% 80%;
+    --input: 35 30% 85%;
+    --ring: 45 75% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Shadows for paper depth */
+    --shadow-paper: 0 4px 20px -2px hsl(25 45% 20% / 0.15);
+    --shadow-card: 0 8px 30px -4px hsl(25 45% 20% / 0.2);
+    --shadow-envelope: 0 15px 40px -6px hsl(25 45% 20% / 0.25);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 25 45% 25%;
+    --sidebar-primary: 25 45% 25%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 40 25% 90%;
+    --sidebar-accent-foreground: 25 45% 25%;
+    --sidebar-border: 35 30% 85%;
+    --sidebar-ring: 45 75% 55%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 25 30% 8%;
+    --foreground: 40 30% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 25 25% 12%;
+    --card-foreground: 40 30% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 25 25% 10%;
+    --popover-foreground: 40 30% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 45 70% 55%;
+    --primary-foreground: 25 30% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 350 30% 35%;
+    --secondary-foreground: 40 30% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 25 20% 18%;
+    --muted-foreground: 40 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 60% 45%;
+    --accent-foreground: 25 30% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --rose: 350 40% 55%;
+    --rose-light: 350 35% 35%;
+    --rose-foreground: 40 30% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --gold: 45 70% 45%;
+    --gold-light: 45 50% 30%;
+    --gold-dark: 40 60% 25%;
+
+    --paper: 25 25% 15%;
+    --paper-dark: 25 20% 12%;
+    --envelope: 30 30% 25%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 40 30% 95%;
+
+    --border: 25 20% 25%;
+    --input: 25 20% 22%;
+    --ring: 45 70% 50%;
   }
 }
 
@@ -101,5 +125,222 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  /* Handwritten font classes */
+  .font-handwritten {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-elegant {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .font-serif {
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+}
+
+@layer components {
+  /* Paper texture background */
+  .paper-texture {
+    background-image: 
+      radial-gradient(ellipse at 20% 30%, hsl(var(--rose-light) / 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, hsl(var(--gold-light) / 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, hsl(var(--paper)) 0%, hsl(var(--paper-dark)) 100%);
+    background-size: cover;
+  }
+
+  /* Torn paper edge effect */
+  .torn-edge {
+    position: relative;
+  }
+  
+  .torn-edge::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: linear-gradient(to right,
+      transparent 0%, hsl(var(--card)) 2%, hsl(var(--card)) 3%,
+      transparent 5%, hsl(var(--card)) 7%, hsl(var(--card)) 12%,
+      transparent 14%, hsl(var(--card)) 16%, hsl(var(--card)) 25%,
+      transparent 27%, hsl(var(--card)) 30%, hsl(var(--card)) 35%,
+      transparent 37%, hsl(var(--card)) 40%, hsl(var(--card)) 48%,
+      transparent 50%, hsl(var(--card)) 52%, hsl(var(--card)) 58%,
+      transparent 60%, hsl(var(--card)) 63%, hsl(var(--card)) 70%,
+      transparent 72%, hsl(var(--card)) 75%, hsl(var(--card)) 82%,
+      transparent 85%, hsl(var(--card)) 88%, hsl(var(--card)) 95%,
+      transparent 97%, hsl(var(--card)) 100%
+    );
+    filter: drop-shadow(0 2px 2px hsl(var(--foreground) / 0.1));
+  }
+
+  /* Polaroid photo style */
+  .polaroid {
+    @apply bg-card p-2 pb-8 shadow-lg;
+    box-shadow: var(--shadow-card);
+    transform: rotate(var(--rotation, -2deg));
+  }
+
+  /* Tape effect */
+  .tape {
+    @apply relative;
+  }
+  
+  .tape::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 60px;
+    height: 24px;
+    background: linear-gradient(135deg, 
+      hsl(45 60% 85% / 0.8) 0%, 
+      hsl(45 50% 75% / 0.6) 100%
+    );
+    border-radius: 2px;
+    box-shadow: 0 1px 3px hsl(var(--foreground) / 0.15);
+  }
+
+  /* Wax seal effect */
+  .wax-seal {
+    @apply relative w-16 h-16 rounded-full flex items-center justify-center;
+    background: radial-gradient(circle at 30% 30%, 
+      hsl(0 65% 45%) 0%, 
+      hsl(0 60% 35%) 50%,
+      hsl(0 55% 25%) 100%
+    );
+    box-shadow: 
+      inset 2px 2px 6px hsl(0 65% 55% / 0.5),
+      inset -2px -2px 6px hsl(0 55% 20% / 0.5),
+      0 4px 12px hsl(0 60% 20% / 0.4);
+  }
+
+  /* Envelope styling */
+  .envelope {
+    background: linear-gradient(180deg, 
+      hsl(var(--envelope)) 0%, 
+      hsl(35 35% 70%) 100%
+    );
+  }
+
+  /* Letter paper */
+  .letter-paper {
+    @apply bg-card relative;
+    background: 
+      repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        hsl(var(--rose-light) / 0.3) 31px,
+        hsl(var(--rose-light) / 0.3) 32px
+      ),
+      linear-gradient(90deg, 
+        hsl(var(--rose-light) / 0.4) 0%, 
+        transparent 1px, 
+        transparent 100%
+      ),
+      hsl(var(--card));
+    background-position: 0 8px, 24px 0, 0 0;
+    box-shadow: var(--shadow-paper);
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--gold)) 0%, 
+      hsl(var(--gold-dark)) 50%,
+      hsl(var(--gold)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating animation for particles */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33% { transform: translateY(-15px) translateX(10px); }
+    66% { transform: translateY(-8px) translateX(-8px); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  @keyframes heart-float {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(-60px) scale(0.9); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-heart-float {
+    animation: heart-float 3s ease-out forwards;
+  }
+
+  /* Page turn shadow */
+  .page-shadow {
+    box-shadow: 
+      -5px 0 15px -5px hsl(var(--foreground) / 0.1),
+      5px 0 15px -5px hsl(var(--foreground) / 0.1);
+  }
+
+  /* Vintage button */
+  .btn-vintage {
+    @apply relative px-6 py-3 font-handwritten text-lg transition-all duration-300;
+    background: linear-gradient(180deg, 
+      hsl(var(--card)) 0%, 
+      hsl(var(--paper-dark)) 100%
+    );
+    border: 2px solid hsl(var(--border));
+    box-shadow: var(--shadow-paper);
+  }
+
+  .btn-vintage:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-vintage:active {
+    transform: translateY(0);
+  }
+
+  /* Rose button variant */
+  .btn-rose {
+    @apply relative px-6 py-3 font-handwritten text-lg transition-all duration-300;
+    background: linear-gradient(180deg, 
+      hsl(var(--secondary)) 0%, 
+      hsl(var(--rose)) 100%
+    );
+    color: hsl(var(--rose-foreground));
+    border: 2px solid hsl(var(--rose) / 0.5);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .btn-rose:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
   }
 }
