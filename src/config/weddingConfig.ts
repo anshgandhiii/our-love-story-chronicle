@@ -6,19 +6,20 @@
 export const weddingConfig = {
   // Couple Information
   couple: {
-    partner1: "Maria",
-    partner2: "Antonio",
+    partner1: "Pallavi",
+    partner2: "Purnesh",
     yearsMarried: 25,
   },
 
   // Event Details
   event: {
-    date: "2025-03-15", // YYYY-MM-DD format
-    time: "6:00 PM",
-    venue: "The Grand Ballroom",
-    address: "123 Romance Avenue, Love City",
-    dressCode: "Formal Elegant",
-    dinner: "Dinner & Dancing",
+    date: "2025-01-30", // YYYY-MM-DD format
+    time: "7:30 PM onwards",
+    venue: "Rajanpara Flamingos 102",
+    address: "Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 400064",
+    dressCode: "Festive Attire",
+    dinner: "Dinner & Celebration",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rajanpara+flamingos+102+Pice+of+mind+center+New+Link+Rd+Malad+West+Mumbai+400064",
   },
 
   // Romantic Taglines

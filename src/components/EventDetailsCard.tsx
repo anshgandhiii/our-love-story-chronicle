@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Clock, MapPin, Shirt, UtensilsCrossed, X, Heart } from "lucide-react";
+import { Calendar, Clock, MapPin, Shirt, UtensilsCrossed, X, Heart, Navigation } from "lucide-react";
 import { weddingConfig } from "@/config/weddingConfig";
 
 interface EventDetailsCardProps {
@@ -24,7 +24,6 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
     { icon: Calendar, label: "Date", value: formatDate(event.date) },
     { icon: Clock, label: "Time", value: event.time },
     { icon: MapPin, label: "Venue", value: event.venue },
-    { icon: MapPin, label: "Address", value: event.address },
     { icon: Shirt, label: "Dress Code", value: event.dressCode },
     { icon: UtensilsCrossed, label: "Event", value: event.dinner },
   ];
@@ -40,7 +39,7 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
           onClick={onClose}
         >
           <motion.div
-            className="relative max-w-md w-full"
+            className="relative max-w-md w-full max-h-[90vh] overflow-y-auto"
             initial={{ scale: 0.8, opacity: 0, rotateZ: -5 }}
             animate={{ scale: 1, opacity: 1, rotateZ: 0 }}
             exit={{ scale: 0.8, opacity: 0, rotateZ: 5 }}
@@ -124,6 +123,42 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
                       </div>
                     </motion.div>
                   ))}
+
+                  {/* Address with Google Maps link */}
+                  <motion.div
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.9 }}
+                  >
+                    <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-serif text-xs text-muted-foreground uppercase tracking-wide">
+                        Address
+                      </p>
+                      <p className="font-handwritten text-lg text-foreground">
+                        {event.address}
+                      </p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+
+                {/* Google Maps Button */}
+                <motion.div
+                  className="mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 }}
+                >
+                  <a
+                    href={event.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-vintage rounded-md flex items-center justify-center gap-3 w-full"
+                  >
+                    <Navigation className="w-5 h-5 text-gold" />
+                    <span>Get Directions 📍</span>
+                  </a>
                 </motion.div>
 
                 {/* Bottom decoration */}
@@ -131,7 +166,7 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
                   className="text-center mt-8"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 }}
+                  transition={{ delay: 1.1 }}
                 >
                   <p className="font-elegant text-xl text-rose">
                     We hope to see you there 💕

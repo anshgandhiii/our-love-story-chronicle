@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
-import { Heart, BookOpen, Calendar, Mail } from "lucide-react";
+import { Heart, BookOpen, Calendar } from "lucide-react";
 import { weddingConfig } from "@/config/weddingConfig";
 
 interface MainLetterProps {
   onReadStory: () => void;
   onEventDetails: () => void;
-  onRSVP: () => void;
 }
 
-export const MainLetter = ({ onReadStory, onEventDetails, onRSVP }: MainLetterProps) => {
+export const MainLetter = ({ onReadStory, onEventDetails }: MainLetterProps) => {
   const { couple, taglines } = weddingConfig;
 
   return (
@@ -105,18 +104,10 @@ export const MainLetter = ({ onReadStory, onEventDetails, onRSVP }: MainLetterPr
 
           <button
             onClick={onEventDetails}
-            className="btn-vintage rounded-md flex items-center justify-center gap-3 w-full"
-          >
-            <Calendar className="w-5 h-5 text-gold" />
-            <span>See Event Details 🕯️</span>
-          </button>
-
-          <button
-            onClick={onRSVP}
             className="btn-rose rounded-md flex items-center justify-center gap-3 w-full"
           >
-            <Mail className="w-5 h-5" />
-            <span>RSVP 💌</span>
+            <Calendar className="w-5 h-5" />
+            <span>See Event Details 🕯️</span>
           </button>
         </motion.div>
 
