@@ -143,12 +143,31 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
                   </motion.div>
                 </motion.div>
 
-                {/* Google Maps Button */}
+                {/* Embedded Google Map */}
                 <motion.div
-                  className="mt-6"
+                  className="mt-6 rounded-lg overflow-hidden border-2 border-gold/20"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 }}
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.5!2d72.8489!3d19.1869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c7e3e3e3e3%3A0x0!2sMalad%20West%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1"
+                    width="100%"
+                    height="150"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Event Location"
+                  />
+                </motion.div>
+
+                {/* Google Maps Button */}
+                <motion.div
+                  className="mt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.1 }}
                 >
                   <a
                     href={event.googleMapsUrl}
@@ -157,7 +176,7 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
                     className="btn-vintage rounded-md flex items-center justify-center gap-3 w-full"
                   >
                     <Navigation className="w-5 h-5 text-gold" />
-                    <span>Get Directions 📍</span>
+                    <span>Open in Google Maps 📍</span>
                   </a>
                 </motion.div>
 
@@ -166,7 +185,7 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
                   className="text-center mt-8"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.1 }}
+                  transition={{ delay: 1.2 }}
                 >
                   <p className="font-elegant text-xl text-rose">
                     We hope to see you there 💕

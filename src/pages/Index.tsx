@@ -11,6 +11,7 @@ import { CountdownTimer } from "@/components/CountdownTimer";
 import { SurpriseButton } from "@/components/SurpriseButton";
 import { CopyLinkButton } from "@/components/CopyLinkButton";
 import { Footer } from "@/components/Footer";
+import { MusicToggle } from "@/components/MusicToggle";
 
 const Index = () => {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
@@ -28,6 +29,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen paper-texture relative overflow-x-hidden">
+      {/* Music toggle */}
+      <MusicToggle />
+
       {/* Floating background particles */}
       <FloatingParticles />
 
