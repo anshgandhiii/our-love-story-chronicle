@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { weddingConfig } from "@/config/weddingConfig";
 
+// Import couple images
+import coupleOld from "@/assets/couple-old.jpg";
+import coupleBeach from "@/assets/couple-beach.jpg";
+import coupleEvent from "@/assets/couple-event.jpg";
+import coupleIcecream from "@/assets/couple-icecream.jpg";
+
+const imageMap: Record<string, string> = {
+  coupleOld,
+  coupleBeach,
+  coupleEvent,
+  coupleIcecream,
+};
+
 interface ScrapbookPagesProps {
   isOpen: boolean;
   onClose: () => void;
@@ -11,18 +24,6 @@ interface ScrapbookPagesProps {
 export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const { storyPages } = weddingConfig;
-
-  const nextPage = () => {
-    if (currentPage < storyPages.length - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
 
   const pageVariants = {
     enter: (direction: number) => ({
@@ -140,7 +141,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
                     transition={{ delay: 0.4 }}
                   >
                     <div className="grid grid-cols-2 gap-4">
-                      {storyPages[currentPage].images.map((image, idx) => (
+                      {storyPages[currentPage].imageKeys.map((imageKey, idx) => (
                         <motion.div
                           key={idx}
                           className="polaroid"
@@ -156,7 +157,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
                           <div className="relative">
                             <div className="tape" />
                             <img
-                              src={image}
+                              src={imageMap[imageKey]}
                               alt={`Memory ${idx + 1}`}
                               className="w-28 h-28 object-cover bg-muted"
                             />
@@ -184,7 +185,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
                   >
                     {currentPage === 0 && "✨"}
                     {currentPage === 1 && "📸"}
-                    {currentPage === 2 && "👨‍👩‍👧‍👦"}
+                    {currentPage === 2 && "🎉"}
                     {currentPage === 3 && "🥂"}
                   </motion.div>
 
