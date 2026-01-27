@@ -7,7 +7,6 @@ import { MainLetter } from "@/components/MainLetter";
 import { ScrapbookPages } from "@/components/ScrapbookPages";
 import { EventDetailsCard } from "@/components/EventDetailsCard";
 import { PolaroidGallery } from "@/components/PolaroidGallery";
-import { RSVPForm } from "@/components/RSVPForm";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { SurpriseButton } from "@/components/SurpriseButton";
 import { CopyLinkButton } from "@/components/CopyLinkButton";
@@ -18,7 +17,6 @@ const Index = () => {
   const [showInvitationPopup, setShowInvitationPopup] = useState(false);
   const [showScrapbook, setShowScrapbook] = useState(false);
   const [showEventDetails, setShowEventDetails] = useState(false);
-  const [showRSVP, setShowRSVP] = useState(false);
 
   const handleEnvelopeOpen = () => {
     setEnvelopeOpened(true);
@@ -54,7 +52,6 @@ const Index = () => {
             <MainLetter
               onReadStory={() => setShowScrapbook(true)}
               onEventDetails={() => setShowEventDetails(true)}
-              onRSVP={() => setShowRSVP(true)}
             />
 
             {/* Countdown timer section */}
@@ -82,11 +79,6 @@ const Index = () => {
       <EventDetailsCard
         isOpen={showEventDetails}
         onClose={() => setShowEventDetails(false)}
-      />
-
-      <RSVPForm
-        isOpen={showRSVP}
-        onClose={() => setShowRSVP(false)}
       />
     </div>
   );
