@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles } from "lucide-react";
 import { weddingConfig } from "@/config/weddingConfig";
 
+// Import couple images
+import coupleOld from "@/assets/couple-old.jpg";
+import coupleBeach from "@/assets/couple-beach.jpg";
+import coupleEvent from "@/assets/couple-event.jpg";
+import coupleIcecream from "@/assets/couple-icecream.jpg";
+
+const imageMap: Record<string, string> = {
+  coupleOld,
+  coupleBeach,
+  coupleEvent,
+  coupleIcecream,
+};
+
 export const PolaroidGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [sparklePosition, setSparklePosition] = useState({ x: 0, y: 0 });
@@ -47,7 +60,7 @@ export const PolaroidGallery = () => {
               onClick={(e) => handleImageClick(idx, e)}
             >
               <img
-                src={photo.src}
+                src={imageMap[photo.imageKey]}
                 alt={photo.caption}
                 className="w-full aspect-square object-cover bg-muted"
               />
@@ -98,7 +111,7 @@ export const PolaroidGallery = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={gallery[selectedImage].src}
+                src={imageMap[gallery[selectedImage].imageKey]}
                 alt={gallery[selectedImage].caption}
                 className="w-full aspect-square object-cover bg-muted"
               />

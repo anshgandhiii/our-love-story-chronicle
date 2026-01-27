@@ -14,7 +14,8 @@ export const weddingConfig = {
   // Event Details
   event: {
     date: "2025-01-30", // YYYY-MM-DD format
-    time: "7:30 PM onwards",
+    time: "19:30", // 24-hour format for countdown
+    displayTime: "7:30 PM onwards",
     venue: "Rajanpara Flamingos 102",
     address: "Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 400064",
     dressCode: "Festive Attire",
@@ -30,42 +31,40 @@ export const weddingConfig = {
     invitation: "You're cordially invited to celebrate",
   },
 
-  // Scrapbook Story Pages
+  // Scrapbook Story Pages - using imported images
   storyPages: [
     {
       title: "How it started ✨",
-      subtitle: "1999 - The Beginning",
-      description: "Two hearts found each other on a beautiful spring day. What started as a chance meeting became the beginning of forever.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      subtitle: "2000 - The Beginning",
+      description: "Two hearts found each other and began a beautiful journey together.",
+      imageKeys: ["coupleOld", "coupleOld"],
     },
     {
       title: "Our best moments 📸",
       subtitle: "Through the years",
       description: "From our first dance to countless adventures, every moment together has been a treasure.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      imageKeys: ["coupleBeach", "coupleIcecream"],
     },
     {
-      title: "Family & blessings 👨‍👩‍👧‍👦",
+      title: "Celebrations & Joy 🎉",
       subtitle: "Growing together",
-      description: "Our love grew into a beautiful family. Each child, a new chapter in our story of love.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      description: "Every celebration became more special with each other by our side.",
+      imageKeys: ["coupleEvent", "coupleBeach"],
     },
     {
       title: "25 years completed 🥂",
       subtitle: "Silver Anniversary",
       description: "A quarter century of love, laughter, and holding hands through it all. Here's to forever more.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      imageKeys: ["coupleEvent", "coupleOld"],
     },
   ],
 
   // Gallery Photos (Polaroid style)
   gallery: [
-    { src: "/placeholder.svg", caption: "Our Wedding Day", rotation: -3 },
-    { src: "/placeholder.svg", caption: "First Anniversary", rotation: 2 },
-    { src: "/placeholder.svg", caption: "Family Vacation", rotation: -2 },
-    { src: "/placeholder.svg", caption: "Holiday Memories", rotation: 4 },
-    { src: "/placeholder.svg", caption: "Date Night", rotation: -1 },
-    { src: "/placeholder.svg", caption: "Forever Us", rotation: 3 },
+    { imageKey: "coupleOld", caption: "Where it all began", rotation: -3 },
+    { imageKey: "coupleBeach", caption: "Beach Romance", rotation: 2 },
+    { imageKey: "coupleIcecream", caption: "Sweet Moments", rotation: -2 },
+    { imageKey: "coupleEvent", caption: "Celebrations", rotation: 4 },
   ],
 
   // Surprise Quotes

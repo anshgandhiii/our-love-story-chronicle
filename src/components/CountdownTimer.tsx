@@ -19,7 +19,8 @@ export const CountdownTimer = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const eventDate = new Date(event.date + "T" + event.time.replace(" ", ""));
+      // Use 24-hour format time for proper parsing
+      const eventDate = new Date(`${event.date}T${event.time}:00`);
       const now = new Date();
       const difference = eventDate.getTime() - now.getTime();
 
@@ -79,7 +80,7 @@ export const CountdownTimer = () => {
             month: "long",
             day: "numeric",
             year: "numeric",
-          })}
+          })} • {event.displayTime}
         </p>
 
         {/* Countdown blocks */}
