@@ -1,34 +1,17 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 
 export const MusicToggle = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
-    // Create audio element
-    audioRef.current = new Audio();
+    audioRef.current = new Audio("/Tum Se Hi Jab We Met 128 Kbps.mp3");
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
-    audioRef.current.src = "/Tum Se Hi Jab We Met 128 Kbps.mp3";
-
-    // Attempt autoplay
-    const playPromise = audioRef.current.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay blocked - wait for user interaction
-        setIsPlaying(false);
-        const handleInteraction = () => {
-          if (audioRef.current) {
-            audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
-          }
-          document.removeEventListener("click", handleInteraction);
-        };
-        document.addEventListener("click", handleInteraction);
-      });
-    }
 
     return () => {
       if (audioRef.current) {
@@ -41,14 +24,15 @@ export const MusicToggle = () => {
   const toggleMusic = () => {
     if (!audioRef.current) return;
 
-    if (isPlaying) {
-      audioRef.current.pause();
+    if (!isPlaying) {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
     } else {
-      audioRef.current.play().catch((e) => {
-        console.log("Audio autoplay blocked:", e);
-      });
+      audioRef.current.pause();
+      setIsPlaying(false);
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -67,8 +51,8 @@ export const MusicToggle = () => {
       ) : (
         <VolumeX className="w-5 h-5" />
       )}
-      
-      {/* Sound wave animation when playing */}
+
+      {/* Sound wave animation */}
       {isPlaying && (
         <motion.div
           className="absolute inset-0 rounded-full border-2 border-gold/30"
