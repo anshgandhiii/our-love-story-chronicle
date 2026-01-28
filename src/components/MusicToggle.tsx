@@ -1,104 +1,60 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, VolumeX } from "lucide-react";
+import { useRef, useState } from "react";
 
-export const MusicToggle = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showPrompt, setShowPrompt] = useState(true);
+export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    audioRef.current = new Audio("/Tum Se Hi Jab We Met 128 Kbps.mp3");
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.3;
+  const handleTap = async () => {
+    try {
+      // Create audio ONLY on user tap (iOS requirement)
+      if (!audioRef.current) {
+        const audio = document.createElement("audio");
+        audio.src = "/music.mp3"; // put music.mp3 in /public
+        audio.loop = true;
+        audio.volume = 1;
 
-    return () => {
-      audioRef.current?.pause();
-      audioRef.current = null;
-    };
-  }, []);
+        document.body.appendChild(audio); // REQUIRED for iOS
+        audioRef.current = audio;
+      }
 
-  const startMusic = () => {
-    if (!audioRef.current) return;
-
-    audioRef.current
-      .play()
-      .then(() => {
+      if (audioRef.current.paused) {
+        await audioRef.current.play(); // MUST be awaited
         setIsPlaying(true);
-        setShowPrompt(false);
-      })
-      .catch(() => {
-        // user denied or browser blocked
-      });
-  };
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().then(() => setIsPlaying(true));
+      } else {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    } catch (err) {
+      console.error("Audio play failed:", err);
+      alert("Tap once more to start music 🎵");
     }
   };
 
   return (
-    <>
-      {/* Permission Prompt */}
-      <AnimatePresence>
-        {showPrompt && !isPlaying && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-white rounded-2xl p-6 text-center max-w-sm mx-4 shadow-xl"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-            >
-              <h2 className="text-lg font-semibold mb-2">
-                🎶 Enable Background Music?
-              </h2>
-              <p className="text-sm text-gray-600 mb-4">
-                Tap below to enjoy soft background music during the celebration.
-              </p>
-
-              <button
-                onClick={startMusic}
-                className="px-6 py-2 rounded-full bg-gold text-white font-medium hover:opacity-90 transition"
-              >
-                Play Music
-              </button>
-
-              <button
-                onClick={() => setShowPrompt(false)}
-                className="block mt-3 text-sm text-gray-500 hover:underline"
-              >
-                Continue without music
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Music Toggle Button */}
-      {!showPrompt && (
-        <motion.button
-          onClick={toggleMusic}
-          className="fixed top-4 right-4 z-40 w-12 h-12 rounded-full bg-card shadow-lg border-2 border-gold/30 flex items-center justify-center text-gold"
-          title={isPlaying ? "Mute music" : "Play music"}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, type: "spring" }}
-        >
-          {isPlaying ? <Volume2 /> : <VolumeX />}
-        </motion.button>
-      )}
-    </>
+    <div
+      style={{
+        position: "fixed",
+        bottom: "24px",
+        right: "24px",
+        zIndex: 9999,
+      }}
+    >
+      <button
+        onClick={handleTap}
+        style={{
+          padding: "14px 18px",
+          fontSize: "16px",
+          borderRadius: "999px",
+          background: "#111",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        {isPlaying ? "⏸ Pause Music" : "▶️ Play Music"}
+      </button>
+    </div>
   );
-};
+}

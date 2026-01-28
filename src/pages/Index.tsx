@@ -11,7 +11,7 @@ import { PolaroidGallery } from "@/components/PolaroidGallery";
 import { SurpriseButton } from "@/components/SurpriseButton";
 import { CopyLinkButton } from "@/components/CopyLinkButton";
 import { Footer } from "@/components/Footer";
-import { MusicToggle } from "@/components/MusicToggle";
+import MusicToggle from "@/components/MusicToggle";
 
 const Index = () => {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
