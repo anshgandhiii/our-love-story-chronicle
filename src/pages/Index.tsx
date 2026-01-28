@@ -7,7 +7,7 @@ import { MainLetter } from "@/components/MainLetter";
 import { ScrapbookPages } from "@/components/ScrapbookPages";
 import { EventDetailsCard } from "@/components/EventDetailsCard";
 import { PolaroidGallery } from "@/components/PolaroidGallery";
-import { CountdownTimer } from "@/components/CountdownTimer";
+
 import { SurpriseButton } from "@/components/SurpriseButton";
 import { CopyLinkButton } from "@/components/CopyLinkButton";
 import { Footer } from "@/components/Footer";
@@ -58,8 +58,6 @@ const Index = () => {
               onEventDetails={() => setShowEventDetails(true)}
             />
 
-            {/* Countdown timer section */}
-            <CountdownTimer />
 
             {/* Polaroid gallery section */}
             <PolaroidGallery />

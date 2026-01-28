@@ -12,12 +12,10 @@ export const EventDetailsCard = ({ isOpen, onClose }: EventDetailsCardProps) => 
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    const month = date.toLocaleDateString("en-US", { month: "long" });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `Friday, ${month} ${day}, ${year}`;
   };
 
   const details = [
