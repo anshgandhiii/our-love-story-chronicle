@@ -31,40 +31,42 @@ export const weddingConfig = {
     invitation: "You're cordially invited to celebrate",
   },
 
-  // Scrapbook Story Pages - using imported images
+  // Scrapbook Story Pages - single image per page
   storyPages: [
     {
       title: "How it started ✨",
       subtitle: "2000 - The Beginning",
       description: "Two hearts found each other and began a beautiful journey together.",
-      imageKeys: ["coupleOld"],
+      imageKey: "coupleGarden",
     },
     {
       title: "Our best moments 📸",
       subtitle: "Through the years",
       description: "From our first dance to countless adventures, every moment together has been a treasure.",
-      imageKeys: ["coupleBeach"],
+      imageKey: "coupleGreen",
     },
     {
       title: "Celebrations & Joy 🎉",
       subtitle: "Growing together",
       description: "Every celebration became more special with each other by our side.",
-      imageKeys: ["coupleEvent"],
+      imageKey: "coupleParty",
     },
     {
       title: "25 years completed 🥂",
       subtitle: "Silver Anniversary",
       description: "A quarter century of love, laughter, and holding hands through it all. Here's to forever more.",
-      imageKeys: ["coupleEvent"],
+      imageKey: "coupleRed",
     },
   ],
 
-  // Gallery Photos (Polaroid style)
+  // Gallery Photos (Polaroid style) - using all images
   gallery: [
-    { imageKey: "coupleOld", caption: "Where it all began", rotation: -3 },
-    { imageKey: "coupleBeach", caption: "Beach Romance", rotation: 2 },
-    { imageKey: "coupleIcecream", caption: "Sweet Moments", rotation: -2 },
-    { imageKey: "coupleEvent", caption: "Celebrations", rotation: 4 },
+    { imageKey: "coupleRed", caption: "Forever Together", rotation: -3 },
+    { imageKey: "coupleGreen", caption: "Festive Vibes", rotation: 2 },
+    { imageKey: "coupleParty", caption: "Party Nights", rotation: -2 },
+    { imageKey: "coupleGarden", caption: "Garden Moments", rotation: 4 },
+    { imageKey: "coupleDinner", caption: "Date Nights", rotation: -1 },
+    { imageKey: "coupleFamily", caption: "Family Love", rotation: 3 },
   ],
 
   // Surprise Quotes

@@ -8,12 +8,20 @@ import coupleOld from "@/assets/couple-old.jpg";
 import coupleBeach from "@/assets/couple-beach.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import coupleIcecream from "@/assets/couple-icecream.jpg";
+import coupleGreen from "@/assets/couple-green.jpg";
+import coupleRed from "@/assets/couple-red.jpg";
+import coupleParty from "@/assets/couple-party.jpg";
+import coupleGarden from "@/assets/couple-garden.jpg";
 
 const imageMap: Record<string, string> = {
   coupleOld,
   coupleBeach,
   coupleEvent,
   coupleIcecream,
+  coupleGreen,
+  coupleRed,
+  coupleParty,
+  coupleGarden,
 };
 
 interface ScrapbookPagesProps {
@@ -71,7 +79,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
           </button>
 
           {/* Scrapbook container */}
-          <div className="relative w-full max-w-md h-[70vh] max-h-[600px]">
+          <div className="relative w-full max-w-md h-[80vh] max-h-[650px]">
             {/* Navigation arrows */}
             <button
               onClick={() => paginate(-1)}
@@ -116,7 +124,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
 
                   {/* Title */}
                   <motion.h2
-                    className="font-elegant text-3xl text-gold text-center mb-1"
+                    className="font-elegant text-2xl sm:text-3xl text-gold text-center mb-1"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -125,7 +133,7 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
                   </motion.h2>
 
                   <motion.p
-                    className="font-handwritten text-lg text-muted-foreground text-center mb-4"
+                    className="font-handwritten text-base sm:text-lg text-muted-foreground text-center mb-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -133,43 +141,35 @@ export const ScrapbookPages = ({ isOpen, onClose }: ScrapbookPagesProps) => {
                     {storyPages[currentPage].subtitle}
                   </motion.p>
 
-                  {/* Photos grid - Polaroid style */}
+                  {/* Single Photo - Polaroid style */}
                   <motion.div
-                    className="flex-1 flex flex-col gap-4 items-center justify-center mb-4"
+                    className="flex-1 flex items-center justify-center mb-4"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <div className="grid grid-cols-2 gap-4">
-                      {storyPages[currentPage].imageKeys.map((imageKey, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="polaroid"
-                          style={{ 
-                            "--rotation": `${idx % 2 === 0 ? -3 : 3}deg` 
-                          } as React.CSSProperties}
-                          whileHover={{ scale: 1.05, rotate: 0 }}
-                          animate={{ 
-                            rotate: [idx % 2 === 0 ? -2 : 2, idx % 2 === 0 ? -3 : 3, idx % 2 === 0 ? -2 : 2] 
-                          }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                        >
-                          <div className="relative">
-                            <div className="tape" />
-                            <img
-                              src={imageMap[imageKey]}
-                              alt={`Memory ${idx + 1}`}
-                              className="w-28 h-28 object-cover bg-muted"
-                            />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
+                    <motion.div
+                      className="polaroid bg-card p-2 pb-4 shadow-xl"
+                      whileHover={{ scale: 1.02, rotate: 0 }}
+                      animate={{ 
+                        rotate: [currentPage % 2 === 0 ? -2 : 2, currentPage % 2 === 0 ? -1 : 1, currentPage % 2 === 0 ? -2 : 2] 
+                      }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                    >
+                      <div className="relative">
+                        <div className="tape" />
+                        <img
+                          src={imageMap[storyPages[currentPage].imageKey]}
+                          alt={storyPages[currentPage].title}
+                          className="w-48 h-48 sm:w-56 sm:h-56 object-cover bg-muted rounded-sm"
+                        />
+                      </div>
+                    </motion.div>
                   </motion.div>
 
                   {/* Description */}
                   <motion.p
-                    className="font-serif text-center text-foreground/80 italic leading-relaxed"
+                    className="font-serif text-center text-foreground/80 italic leading-relaxed text-sm sm:text-base"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}

@@ -8,12 +8,24 @@ import coupleOld from "@/assets/couple-old.jpg";
 import coupleBeach from "@/assets/couple-beach.jpg";
 import coupleEvent from "@/assets/couple-event.jpg";
 import coupleIcecream from "@/assets/couple-icecream.jpg";
+import coupleGreen from "@/assets/couple-green.jpg";
+import coupleRed from "@/assets/couple-red.jpg";
+import coupleParty from "@/assets/couple-party.jpg";
+import coupleGarden from "@/assets/couple-garden.jpg";
+import coupleDinner from "@/assets/couple-dinner.jpg";
+import coupleFamily from "@/assets/couple-family.jpg";
 
 const imageMap: Record<string, string> = {
   coupleOld,
   coupleBeach,
   coupleEvent,
   coupleIcecream,
+  coupleGreen,
+  coupleRed,
+  coupleParty,
+  coupleGarden,
+  coupleDinner,
+  coupleFamily,
 };
 
 export const PolaroidGallery = () => {
