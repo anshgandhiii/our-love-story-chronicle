@@ -14,14 +14,14 @@ export const weddingConfig = {
   // Event Details
   event: {
     date: "2025-01-30", // YYYY-MM-DD format
-    time: "19:30", // 24-hour format for countdown
+    time: "7:30 pm", // 24-hour format for countdown
     displayTime: "7:30 PM onwards",
-    venue: "Rajanpara Flamingos 102",
-    address: "Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 400064",
-    dressCode: "Festive Attire",
+    venue: "Fir Milenge Banquet Hall, Malad West, Mumbai",
+    address: "Rajanpara flamingos 102, Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 4000644",
+    dressCode: "Western Attire",
     dinner: "Dinner & Celebration",
-    googleMapsUrl: "https://maps.google.com/?q=19.1869,72.8489",
-    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.0!2d72.8489!3d19.1869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDExJzEyLjgiTiA3MsKwNTAnNTYuMCJF!5e0!3m2!1sen!2sin!4v1",
+    googleMapsUrl: "https://maps.app.goo.gl/v7aEaA5kHJBSse5V6",
+    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.955326110889!2d72.83154957498061!3d19.197153482032455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7001394c06f%3A0x50a55ef25973e462!2sFir%20milenge!5e0!3m2!1sen!2sin!4v1769581535798!5m2!1sen!2sin",
   },
 
   // Romantic Taglines
@@ -35,7 +35,7 @@ export const weddingConfig = {
   storyPages: [
     {
       title: "How it started ✨",
-      subtitle: "2000 - The Beginning",
+      subtitle: "1998 - The Beginning",
       description: "Two hearts found each other and began a beautiful journey together.",
       imageKey: "coupleGarden",
     },
@@ -64,7 +64,7 @@ export const weddingConfig = {
     { imageKey: "coupleRed", caption: "Forever Together", rotation: -3 },
     { imageKey: "coupleGreen", caption: "Festive Vibes", rotation: 2 },
     { imageKey: "coupleParty", caption: "Party Nights", rotation: -2 },
-    { imageKey: "coupleGarden", caption: "Garden Moments", rotation: 4 },
+    { imageKey: "coupleGarden", caption: "Golden Moments", rotation: 4 },
     { imageKey: "coupleDinner", caption: "Date Nights", rotation: -1 },
     { imageKey: "coupleFamily", caption: "Family Love", rotation: 3 },
   ],
