@@ -3,19 +3,31 @@ import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 
 export const MusicToggle = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element - Replace this URL with your own music file
-    // You can upload an MP3 to the public folder and use it like: "/your-song.mp3"
+    // Create audio element
     audioRef.current = new Audio();
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
-    
-    // Using a royalty-free romantic piano track
-    // Replace with your own music file path if you have one
-    audioRef.current.src = "https://cdn.pixabay.com/audio/2024/11/04/audio_4956b8bbf1.mp3";
+    audioRef.current.src = "/Tum Se Hi Jab We Met 128 Kbps.mp3";
+
+    // Attempt autoplay
+    const playPromise = audioRef.current.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked - wait for user interaction
+        setIsPlaying(false);
+        const handleInteraction = () => {
+          if (audioRef.current) {
+            audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+          }
+          document.removeEventListener("click", handleInteraction);
+        };
+        document.addEventListener("click", handleInteraction);
+      });
+    }
 
     return () => {
       if (audioRef.current) {
