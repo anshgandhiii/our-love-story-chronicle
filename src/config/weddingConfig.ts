@@ -13,7 +13,7 @@ export const weddingConfig = {
 
   // Event Details
   event: {
-    date: "2025-01-30", // YYYY-MM-DD format
+    date: "2026-01-30", // YYYY-MM-DD format
     time: "7:30 pm", // 24-hour format for countdown
     displayTime: "7:30 PM onwards",
     venue: "Fir Milenge Banquet Hall, Malad West, Mumbai",
