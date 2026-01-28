@@ -4,9 +4,11 @@ import { Volume2, VolumeX } from "lucide-react";
 
 export const MusicToggle = () => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    // Create audio element
     // Create audio element
     audioRef.current = new Audio();
     audioRef.current.loop = true;
