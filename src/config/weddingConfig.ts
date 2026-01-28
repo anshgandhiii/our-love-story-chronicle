@@ -17,7 +17,7 @@ export const weddingConfig = {
     time: "7:30 pm", // 24-hour format for countdown
     displayTime: "7:30 PM onwards",
     venue: "Fir Milenge Banquet Hall, Malad West, Mumbai",
-    address: "Rajanpara flamingos 102, Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 4000644",
+    address: "Rajanpara flamingos 102, Pice of mind center, New Link Rd, Malad, Jai Janata Nagar, Malad West, Mumbai, Maharashtra 400644",
     dressCode: "Western Attire",
     dinner: "Dinner & Celebration",
     googleMapsUrl: "https://maps.app.goo.gl/v7aEaA5kHJBSse5V6",
